@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Comic World</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+    <script src="./components/Poster.js"></script>
+    <script src="./components/CursorEvents.js"></script>
+    <script src="./components/InfoBanner.js"></script>
+
+  </head>
+  <body>
+    <a-scene id="main-scene">
+      
+      <a-sky id="main-container" radius="5000" color="#90caf9"></a-sky>
+
+      <a-plane
+        id="ground"
+        color="#78909c"
+        width="200"
+        height="100"
+        rotation="-90 0 0"
+        ></a-plane>
+
+      <!-- Places Container -->
+      <a-entity id="posters-container" comics-posters ></a-entity>
+
+      <!-- CAMERA -->
+      <a-camera id="camera" position="0 10 20" wasd-controls="enabled:false;">
+
+        <!-- App Title -->
+        <a-entity
+          id="app-title"
+          position="0 0.73 -1"
+          text="font: exo2bold; align: center; width: 2; color: #000; value: Virtual Comics Store !"
+        >
+          <a-entity
+            id="app-subtitle"
+            position="0 -0.1 0"
+            text="font: dejavu; align: center; width: 1; color: #0F184E; value: It's time to explore comic world!"
+          ></a-entity>
+        </a-entity>
+
+        <!-- Cursor -->
+        <a-entity
+          id="camera-cursor"
+          cursor
+          position="0 0 -3"
+          geometry="primitive: ring; radiusInner: 0.06; radiusOuter: 0.10"
+          material="color: #fff; shader: flat"
+        ></a-entity>
+
+        <!-- Story Text -->
+        <a-entity
+          id="fadeBackground"
+          geometry="primitive:sphere; radius: 2.5"
+          material="color:black; side:back; shader:flat; transparent:true; opacity:0.6"
+          visible="false"
+          cursor-listener
+        ></a-entity>
+
+        <!--Background-->
+        <a-entity > </a-entity>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
